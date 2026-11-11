@@ -263,7 +263,11 @@ figcaption { font-size: 0.92rem; margin-top: 0.6rem; opacity: 0.8; }
   gap: 16px;
   max-height: calc(85vh - 110px);
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2px;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .dialog-gallery img {
@@ -305,7 +309,7 @@ figcaption { font-size: 0.92rem; margin-top: 0.6rem; opacity: 0.8; }
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: none;
+  touch-action: pan-y;
   cursor: grab;
 }
 
