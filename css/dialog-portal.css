@@ -1,0 +1,133 @@
+#projectImagesDialog {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+
+.project-dialog {
+  width: min(850px, 90%);
+  max-height: 85vh;
+  padding: 28px;
+  border: 1px solid #476c73;
+  border-radius: 18px;
+  background: #164750;
+  color: #edf4f5;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.project-dialog::backdrop {
+  background: rgba(0, 20, 25, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  font-size: 25px;
+  color: #edf4f5;
+}
+
+.dialog-close {
+  border: none;
+  background: #ffb51b;
+  color: #123b43;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dialog-close:hover {
+  background: #ffd064;
+  transform: rotate(90deg);
+}
+
+.dialog-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-height: calc(85vh - 110px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.dialog-gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #476c73;
+  transition: transform 0.25s;
+}
+
+.dialog-gallery img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .project-dialog {
+    padding: 18px;
+    width: 90%;
+
+  }
+
+  .dialog-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-gallery img {
+    height: 100px;
+  }
+}
+
+
+.image-zoom-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #476c73;
+  background: #103a42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.image-zoom-container:active {
+  cursor: grabbing;
+}
+
+.image-zoom-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+  transform-origin: center center;
+  transition: transform 0.05s linear;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .image-zoom-container {
+    height: 400px;
+  }
+}
+
